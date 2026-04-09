@@ -1,0 +1,194 @@
+basic start  
+
+
+Project 8 | Build a Chatbot for L'Oréal
+L’Oréal is exploring the power of AI, and your job is to showcase what's possible. Your task is to build a chatbot that helps users discover and understand L’Oréal’s extensive range of products—makeup, skincare, haircare, and fragrances—as well as provide personalized routines and recommendations.
+
+Project Steps Overview:
+Click this starter file link to launch your own Codespace. Your starter code includes:
+●	HTML for a chat interface with header, footer, chat area, input field, and send button. 
+●	A L’Oréal logo image to use for branding your chatbot.
+●	Basic CSS styles to structure the layout.
+●	JavaScript (script.js) handling basic user interaction: capturing input and displaying it in the chat window.
+●	Cloudflare Worker helper script (RESOURCE_cloudflare-worker.js) pre-configured for secure API communication.
+Add Branding & Customize Appearance
+●	Add the provided L’Oréal logo to your page.
+●	Update your CSS styles to use L’Oréal branded colors. Ensure the visual design aligns with L’Oréal’s brand identity.
+●	Review a case study of L’Oréal fonts from Monotype, a global company specializing in type design and font licensing.
+Obtain Your API Key
+●	Get your OpenAI API key from the OpenAI dashboard. Temporarily store your key in a local file called secrets.js within your Codespace.
+Configure the Chatbot
+●	Write a clear, concise system prompt for your chatbot that guides it to only answer questions related to L’Oréal products, routines, and recommendations. 
+●	Modify the JavaScript (script.js) to:
+○	Capture user input from the chat interface.
+○	Send requests to OpenAI's Chat Completions API.
+○	Display chatbot responses clearly within the chat interface.
+Ensure AI Relevance
+●	Configure your AI to politely refuse to answer questions unrelated to L’Oréal products, routines, recommendations, beauty-related topics, etc.
+Create a Cloudflare Worker & Secure Your API Key
+●	Create a Cloudflare Worker for your project.
+●	Securely store your API key in Cloudflare under "Variables and Secrets."
+●	Deploy your Cloudflare Worker using the provided helper script (RESOURCE_cloudflare-worker.js).
+●	Watch the video "Protecting Your API Key with Cloudflare" in the 🍿AI Privacy and Safety Skillbuilder if you need a refresher on deploying securely.
+●	Note the Cloudflare Worker URL provided after deployment.
+Update Your Chatbot to Use Cloudflare Worker Endpoint
+●	Update your JavaScript (script.js) to send requests to your deployed Cloudflare Worker endpoint URL instead of directly to OpenAI.
+●	Verify that your chatbot correctly communicates through your Cloudflare Worker.
+Ready for a LevelUp? (25 pts extra credit)
+●	Maintain Conversation History (10 pts): Enable your chatbot to track the context of the conversation, including details like the user's name and past questions, to support natural, multi-turn interactions. 
+●	Display User Question (5 pts): Display the user's latest question just above the chat response, like in the project preview image. It resets with each new question.
+●	Chat Conversation UI (10 pts): Design your chatbot interface to mimic a real conversation, using distinct message bubbles for user and assistant messages. This layout enhances readability and provides a familiar chat experience.
+Test & Submit
+●	Use DevTools to check functionality and responsiveness across different screen sizes.
+●	Commit and push your changes to GitHub.
+●	Deploy your site and submit the live link. Ensure your link works correctly by testing in an incognito or private browser.
+
+
+second part 
+
+our project this week is to create a branded chatbot that helps customers navigate L'Oréal's extensive product catalog and receive tailored recommendations powered by the OpenAI API.
+
+You'll not only implement the functionality but also style your application to reflect L'Oréal's distinctive visual identity. For security, you'll deploy your creation using a Cloudflare Worker to protect sensitive API credentials.
+
+Take a look at what Guil built as inspiration:
+
+ 
+
+A mockup of a L’Oréal-branded chatbot called “Smart Routine & Product Advisor.” The user asks, “What’s the difference between a serum and a treatment product?” The chatbot responds with a friendly, emoji-enhanced explanation. It describes a serum as a lightweight, fast-absorbing liquid for daily use, and a treatment product as a more targeted solution like a cream or mask for issues such as acne or hyperpigmentation. The chatbot signs off by offering to recommend products. The page includes a branded logo, input box, and footer with L’Oréal’s copyright, privacy policy, and contact links.
+
+ 
+
+Click Here to Get StartedLinks to an external site.
+ 
+
+To submit, download your completed document as a PDF and submit it here. As always, have fun with it!
+
+RESOURCES:
+
+Generate Your OpenAI API Key
+All About Prompting (Demo videos)
+Using the OpenAI API (Demo videos)
+AI Privacy and Safety (Video lessons)
+NEED SOME EXTRA GUIDANCE?
+
+Check out this help article for Common GitHub Issues
+Reach out to the HelpHub!
+Visit Drop-In Hours with a Team Lead, we all got your back :)
+ 
+
+Decorative: A woman with a laptop edits a large, stylized resume with a bold ‘RESUME’ heading, pencil, and background decor.
+Add This to Your Resume!
+Built a branded L’Oréal chatbot that delivered personalized beauty recommendations using the OpenAI API. Styled the app to match L’Oréal’s signature look and deployed it securely with Cloudflare Workers. Gained experience in API integration, chatbot development, and secure web deployment.
+
+Rubric
+Build a Chatbot for L'Oréal Rubric
+Build a Chatbot for L'Oréal Rubric
+Criteria	Ratings	Pts
+This criterion is linked to a Learning OutcomeL’Oréal Branding
+10 pts
+Full Points
+L’Oréal logo is shown and the page uses official brand colors and styling
+5 pts
+Partial Points
+Some branding applied, but colors or fonts don't match L’Oréal identity
+0 pts
+No Points
+No L’Oréal branding or off-brand styling used
+10 pts
+This criterion is linked to a Learning OutcomeChatbot Configuration
+20 pts
+Full Points
+Chatbot uses a system prompt, captures user input, sends it to OpenAI, and displays a response
+10 pts
+Partial Points
+One or more chatbot features are incomplete or buggy
+0 pts
+No Points
+Chatbot does not work or does not connect to OpenAI
+20 pts
+This criterion is linked to a Learning OutcomeAI Relevance
+10 pts
+Full Points
+Chatbot refuses unrelated questions and only answers queries about L’Oréal products and routines
+5 pts
+Partial Points
+Chatbot inconsistently filters unrelated questions or includes off-topic replies
+0 pts
+No Points
+Chatbot answers all questions, even unrelated ones
+10 pts
+This criterion is linked to a Learning OutcomeSecure Deployment
+10 pts
+Full Points
+Chatbot requests are safely routed through Cloudflare Worker
+0 pts
+No Points
+Chatbot does not use Cloudflare Worker correctly and API Key is exposed
+10 pts
+This criterion is linked to a Learning OutcomeLevelUp (Optional): Maintain Conversation History
+10 pts
+Bonus Points
+Chatbot remembers details from earlier messages and responds with context awareness
+0 pts
+No Points
+No attempt to maintain or respond to conversation context
+10 pts
+This criterion is linked to a Learning OutcomeLevelUp (Optional): Display User Question Above Response
+5 pts
+Bonus Points
+Each user question is briefly shown above the AI response before resetting on next input
+3 pts
+Partial Points
+User question appears inconsistently or isn't styled clearly
+0 pts
+No Points
+User questions not displayed above responses
+5 pts
+This criterion is linked to a Learning OutcomeLevelUp (Optional): Chat Conversation UI
+10 pts
+Bonus Points
+Messages from user and chatbot are styled in distinct chat bubbles with a clear layout
+5 pts
+Partial Points
+Bubble styling is attempted but unclear or inconsistently applied
+0 pts
+No Points
+No distinction between user and chatbot messages
+10 pts
+This criterion is linked to a Learning OutcomeReflection Question: Building a Chatbot
+10 pts
+Full Points
+Made an effort to answer the reflection question
+5 pts
+Partial Points
+Answered the reflection question, but the answer was off-topic, extremely short, or otherwise indicative of a lack of genuine effort
+0 pts
+No Points
+No attempt at answering the reflection question
+10 pts
+This criterion is linked to a Learning OutcomeReflection Question: Talking Points
+10 pts
+Full Points
+Made an effort to answer the reflection question
+5 pts
+Partial Points
+Answered the reflection question, but the answer was off-topic, extremely short, or otherwise indicative of a lack of genuine effort
+0 pts
+No Points
+No attempt at answering the reflection question
+10 pts
+This criterion is linked to a Learning OutcomeReflection Question: L’Oréal Recruiter
+10 pts
+Full Points
+Made an effort to answer the reflection question
+5 pts
+Partial Points
+Answered the reflection question, but the answer was off-topic, extremely short, or otherwise indicative of a lack of genuine effort
+0 pts
+No Points
+No attempt at answering the reflection question
+10 pts
+Total Points: 105
+
+
+
