@@ -1,0 +1,3 @@
+# Example Cloudflare Wrangler local secrets file
+# Copy values into your own .dev.vars file (do not commit real keys)
+OPENAI_API_KEY=your_openai_api_key_here
