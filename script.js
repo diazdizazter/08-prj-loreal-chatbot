@@ -5,6 +5,10 @@ const sendBtn = document.getElementById("sendBtn");
 
 const CLOUDFLARE_WORKER_URL =
   "https://08-prj-loreal-chatbot.edwin-kelsi54.workers.dev/";
+const MIN_REQUEST_GAP_MS = 1500;
+
+let isRequestInFlight = false;
+let lastRequestAt = 0;
 
 const messages = [
   {
@@ -43,6 +47,16 @@ addMessage("Hi! I can help with L'Oreal products and beauty routines.", "ai");
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  if (isRequestInFlight) {
+    return;
+  }
+
+  const now = Date.now();
+  if (now - lastRequestAt < MIN_REQUEST_GAP_MS) {
+    addMessage("Please wait a moment before sending another message.", "ai");
+    return;
+  }
+
   const question = userInput.value.trim();
   if (!question) return;
 
@@ -51,7 +65,10 @@ chatForm.addEventListener("submit", async (e) => {
 
   messages.push({ role: "user", content: question });
 
+  isRequestInFlight = true;
+  lastRequestAt = now;
   sendBtn.disabled = true;
+  userInput.disabled = true;
   addTypingIndicator();
 
   try {
@@ -64,7 +81,9 @@ chatForm.addEventListener("submit", async (e) => {
     });
 
     if (!response.ok) {
-      throw new Error("Request failed.");
+      const errorData = await response.json().catch(() => null);
+      const errorMessage = errorData?.error || "Request failed.";
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();
@@ -77,11 +96,13 @@ chatForm.addEventListener("submit", async (e) => {
   } catch (error) {
     removeTypingIndicator();
     addMessage(
-      "Sorry, I could not reach the chatbot service. Please check your Worker URL and try again.",
+      `Sorry, I could not complete the request: ${error.message}`,
       "ai",
     );
   } finally {
+    isRequestInFlight = false;
     sendBtn.disabled = false;
+    userInput.disabled = false;
     userInput.focus();
   }
 });
