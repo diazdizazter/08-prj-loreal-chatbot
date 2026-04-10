@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <title>L'Oreal Product Advisor</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -17,12 +17,15 @@
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+      <img
+        src="img/loreal-logo.png"
+        alt="L'Oréal logo"
+        class="brand-logo brand-logo--top-left"
+      />
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <h1 class="site-title">L'Oreal Product Advisor</h1>
       </header>
 
-      <!------- Chat Area ------->
       <main>
         <section class="chatbox">
           <div id="chatWindow" class="chat-window">
@@ -35,7 +38,7 @@
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
+              placeholder="Ask about products or routines..."
               autocomplete="off"
               required
             />
@@ -47,16 +50,21 @@
         </section>
       </main>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2026 L'Oreal Student Project.</p>
         <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
           <a href="#">Contact</a>
         </nav>
       </footer>
+
+      <img
+        src="img/loreal-logo.png"
+        alt=""
+        aria-hidden="true"
+        class="brand-logo brand-logo--bottom-right"
+      />
     </div>
 
     <script src="script.js"></script>

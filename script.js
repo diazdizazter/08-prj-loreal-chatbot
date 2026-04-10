@@ -1,14 +1,11 @@
-/* DOM elements */
 const chatForm = document.getElementById("chatForm");
 const userInput = document.getElementById("userInput");
 const chatWindow = document.getElementById("chatWindow");
 const sendBtn = document.getElementById("sendBtn");
 
-// Replace this with your deployed Cloudflare Worker URL.
 const CLOUDFLARE_WORKER_URL =
-  "https://your-worker-name.your-subdomain.workers.dev";
+  "https://08-prj-loreal-chatbot.edwin-kelsi54.workers.dev/";
 
-// The system message keeps the chatbot focused on beauty and L'Oreal topics.
 const messages = [
   {
     role: "system",
@@ -29,7 +26,7 @@ function addTypingIndicator() {
   const typingEl = document.createElement("p");
   typingEl.id = "typingIndicator";
   typingEl.className = "msg ai";
-  typingEl.textContent = "Assistant is typing...";
+  typingEl.textContent = "Assistant is thinking...";
   chatWindow.appendChild(typingEl);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
@@ -41,20 +38,17 @@ function removeTypingIndicator() {
   }
 }
 
-// Set initial message
-addMessage("Hello! Ask me about L'Oreal products or beauty routines.", "ai");
+addMessage("Hi! I can help with L'Oreal products and beauty routines.", "ai");
 
-/* Handle form submit */
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const question = userInput.value.trim();
   if (!question) return;
 
-  addMessage(`You: ${question}`, "user");
+  addMessage(question, "user");
   userInput.value = "";
 
-  // Add the latest user message to the conversation history.
   messages.push({ role: "user", content: question });
 
   sendBtn.disabled = true;
@@ -77,9 +71,8 @@ chatForm.addEventListener("submit", async (e) => {
     const aiReply = data.choices[0].message.content;
 
     removeTypingIndicator();
-    addMessage(`Assistant: ${aiReply}`, "ai");
+    addMessage(aiReply, "ai");
 
-    // Save the assistant response too, so future replies keep context.
     messages.push({ role: "assistant", content: aiReply });
   } catch (error) {
     removeTypingIndicator();

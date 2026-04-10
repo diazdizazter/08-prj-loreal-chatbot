@@ -1,27 +1,55 @@
-/* —— basic reset —— */
+/* Basic reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* —— body + fonts —— */
+/* Page setup */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   color: #333;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  background: linear-gradient(180deg, #fff7f8 0%, #ffffff 40%, #fff9fb 100%);
+  padding: 24px 0;
 }
 
 .page-wrapper {
+  position: relative;
   width: 90%;
   max-width: 900px;
+  min-height: calc(100vh - 48px);
 }
 
-/* header */
+/* Logo placement */
+.brand-logo {
+  position: absolute;
+  width: 72px;
+  height: auto;
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.brand-logo--top-left {
+  top: 0;
+  left: 0;
+}
+
+.brand-logo--bottom-right {
+  right: 0;
+  bottom: 0;
+  width: 84px;
+  opacity: 0.2;
+  transform: rotate(-8deg);
+}
+
+/* Header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 72px;
 }
 
 .site-title {
@@ -30,7 +58,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* chat window */
+/* Chat area */
 .chatbox {
   margin: 40px 0;
 }
@@ -46,7 +74,7 @@ body {
   white-space: pre-line;
 }
 
-/* messages */
+/* Chat messages */
 .msg {
   margin-bottom: 14px;
   line-height: 1.5;
@@ -60,7 +88,7 @@ body {
   color: #666666;
 }
 
-/* input row */
+/* Input row */
 .chat-form {
   display: flex;
   gap: 12px;
@@ -107,7 +135,7 @@ body {
   outline-offset: 2px;
 }
 
-/* visually hidden */
+/* Screen reader only */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -120,7 +148,7 @@ body {
   border: 0;
 }
 
-/* footer */
+/* Footer */
 .site-footer {
   margin: 60px 0 40px;
   text-align: center;
@@ -140,4 +168,37 @@ body {
 
 .site-footer a:hover {
   color: #666666;
+}
+
+@media (max-width: 640px) {
+  .page-wrapper {
+    width: 94%;
+  }
+
+  .brand-logo {
+    width: 52px;
+  }
+
+  .brand-logo--bottom-right {
+    width: 60px;
+  }
+
+  .site-header {
+    padding-top: 56px;
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+
+  .chat-window {
+    height: 320px;
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .chat-form input,
+  .chat-form button {
+    font-size: 16px;
+  }
 }
